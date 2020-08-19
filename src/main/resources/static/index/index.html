@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<title>株式会社ブライトスター</title>
+		<link rel="stylesheet" type="text/css" href="/js/easyui/themes/default/easyui.css" />
+		<link rel="stylesheet" type="text/css" href="/js/easyui/themes/icon.css" />
+		<link rel="stylesheet" type="text/css" href="/css/head.css" />
+	
+		<script src="/js/easyui/jquery.min.js"></script>
+		<script src="/js/easyui/jquery.easyui.min.js"></script>
+		<script src="/js/easyui/locale/easyui-lang-jp.js"></script>
+		<script src="/js/tools.js"></script>
+		<script src="/index/index.js"></script>
+		
+	</head>
+	<body class="easyui-layout">
+		<div class="header"></div>
+		<div class="context" style="margin-bottom:55px;">
+			<div class="left">
+				登録日時：<span id="localTime"></span>
+			</div>
+			<div class="right">
+				ユーザ名：<span id="userName"></span>  &nbsp;&nbsp;
+				権限：<span id="userRole"></span> &nbsp;&nbsp;
+				<a href="javascript:;" onclick="app.logout();" style="text-decoration:none">ログアウト</a>
+			</div>
+		</div>
+		<div style="margin:20px 0 10px 0;"></div>
+		<div class="easyui-tabs" id="tabs" data-options="fit:true,tabWidth:150">
+			<div title="作業催促" style="padding:10px">
+				<h1>開発中</h1>
+			</div>
+			<div title="受注管理" style="padding:10px">
+				<h1>開発中</h1>
+			</div>
+			<div title="外注管理" style="padding:10px">
+				<h1>開発中</h1>
+			</div>
+			<div title="請求管理" style="padding:10px">
+				<h1>開発中</h1>
+			</div>
+			<div title="見積作成" style="padding:10px">
+				<h1>開発中</h1>
+			</div>
+			<div title="各書類作成" style="padding:10px">
+				<h1>開発中</h1>
+			</div>
+			<div title="取引先管理" style="padding:10px">
+				<h1>開発中</h1>
+			</div>
+			<div title="社員管理">
+				<div style="padding:10px">
+					<form id="searchForm" class="easyui-form" method="post">
+						<table style="width:100%;">
+							<tr>
+								<td>所属会社 &nbsp;
+									<select class="easyui-combobox" id="SYOZOKU_KAISYA" name="SYOZOKU_KAISYA" style="width:200px;" data-options="panelHeight:'auto',editable:false">
+										<option value="" selected>全て</option>
+		                                <option value="1">株式会社ブライトスター</option>
+		                                <option value="2">株式会社トップクラウド</option>
+		                            </select>
+								</td>
+								<td>社員名 &nbsp;
+									<input class="easyui-textbox" id="name" name="name"　style="width:200px;" />
+								</td>
+							</tr>
+							<tr>
+								<td style="padding:10px 0;">職業種類 &nbsp;
+									<select class="easyui-combobox" id="SYOKUGYO_KIND" name="SYOKUGYO_KIND" style="width:200px;" data-options="panelHeight:'auto',editable:false">
+										<option value="">全て</option>
+		                                <option value="1">役員</option>
+		                                <option value="2">総務</option>
+		                                <option value="3">IT営業</option>
+		                                <option value="4" selected>ITエンジニア</option>
+		                                <option value="5">不動産スタッフ</option>
+		                                <option value="6">個人事業主</option>
+		                            </select>
+								</td>
+								<td>
+									在籍&nbsp;&nbsp;<input class="easyui-checkbox" id="ZAISEKI" name="SEKI" checked />
+									&nbsp;&nbsp;
+									非在籍&nbsp;&nbsp;<input class="easyui-checkbox" id="HIZAISEKI" name="SEKI" />
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<a href="javascript:;" id="searchBtn" class="easyui-linkbutton" style="width:80px;">検 索</a>
+								</td>
+							</tr>
+						</table>
+					</form>
+				</div>
+				<table id="userList" title="社員一覧"></table>
+			</div>
+			<div title="システム設定" style="padding:10px">
+				<h1>開発中</h1>
+			</div>
+			<div title="ユーザ管理" style="padding:10px">
+				<h1>開発中</h1>
+			</div>
+		</div>
+	</body>
+</html>

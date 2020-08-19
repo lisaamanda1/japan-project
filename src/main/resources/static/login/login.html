@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<title>株式会社ブライトスター</title>
+		<link rel="stylesheet" type="text/css" href="/js/easyui/themes/default/easyui.css">
+		<link rel="stylesheet" type="text/css" href="/js/easyui/themes/icon.css">
+		<link rel="stylesheet" type="text/css" href="/css/head.css" />
+	
+		<script src="/js/easyui/jquery.min.js"></script>
+		<script src="/js/easyui/jquery.easyui.min.js"></script>
+		<script src="/js/tools.js"></script>
+		<script src="/login/login.js"></script>
+	</head>
+	<body>
+		<div style="width:1400px;margin:0 auto;">
+			<div class="header" style="margin-bottom:40px;"></div>
+			<div style="float:left;">
+				<div class="easyui-panel" title="利用者登録"
+				    style="width:500px;height:460px;padding:10px;background:#fafafa;"
+				    data-options="collapsible:false,collapsed:false">
+				    <table style="width:380px;height:380px;margin:0 auto;">
+				    	<tr>
+				    		<td style="padding:40px 10px;text-align:right;">ログインID：</td>
+				    		<td style="text-align:left;"><input class="easyui-textbox" style="width:200px;" id="username" /></td>
+				    	</tr>
+				    	<tr>
+				    		<td style="padding:0 10px;text-align:right;">パスワード：</td>
+				    		<td style="text-align:left;"><input class="easyui-passwordbox" style="width:200px;" id="password" />
+				    	</tr>
+				    	<tr>
+				    		<td style="padding:30px 10px;text-align:center;" colspan="2">
+				    			<a id="login" href="javascript:;" class="easyui-linkbutton" data-options="width:150,height:60">ログイン</a>
+				    		</td>
+				    	</tr>
+				    	<tr>
+				    		<td style="padding:0 10px;text-align:center;" colspan="2">
+				    			<span id="errMsg" style="color:red"></span>
+				    		</td>
+				    	</tr>
+				    </table>
+				</div>
+			</div>
+			
+			<div style="width:800px;margin-left:100px;float:left;">
+				<div class="easyui-panel" title="応用機能"
+				    data-options="collapsible:false,collapsed:true">
+				</div>
+				<div>
+					<table border="0" style="width:70%;margin:20px auto;">
+						<tr>
+							<td style="width:200px;padding:10px 0;">●受注管理</td>
+							<td style="width:200px;padding:10px 0;">●外注管理</td>
+							<td style="width:200px;padding:10px 0;">●請求作成</td>
+						</tr>
+						<tr>
+							<td style="width:200px;padding:10px 0;">●見積作成</td>
+							<td style="width:200px;padding:10px 0;">●作業催促</td>
+							<td style="width:200px;padding:10px 0;">●各書類作成</td>
+						</tr>
+					</table>
+				</div>
+				<div class="easyui-panel" title="マスタ管理機能"
+				    data-options="collapsible:false,collapsed:true">
+				</div>
+				<div>
+					<table border="0" style="width:70%;margin:20px auto;">
+						<tr>
+							<td style="width:200px;padding:10px 0;">●取引先情報管理</td>
+							<td style="width:200px;"></td>
+							<td style="width:200px;"></td>
+						</tr>
+						<tr>
+							<td style="width:200px;padding:10px 0;">●社員情報管理</td>
+							<td style="width:200px;"></td>
+							<td style="width:200px;"></td>
+						</tr>
+						<tr>
+							<td colspan="3" style="width:200px;padding-left:40px;">
+							・基本情報&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							・履歴&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							・経歴
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="easyui-panel" title="開発関連"
+				    data-options="collapsible:false,collapsed:true">
+				</div>
+				<div>
+					<table style="width:100%;">
+						<tr>
+							<td style="width:200px;padding:10px 0;"><span id="version"></span></td>
+						</tr>
+						<tr>
+							<td style="width:200px;padding:10px 0;"><span id="function"></span></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

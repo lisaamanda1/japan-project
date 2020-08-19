@@ -1,0 +1,4 @@
+.context{ margin:20px; text-align:center;}
+.context .left{ float:left;}
+.context .center{ display:inline;}
+.context .right{ float:right;}

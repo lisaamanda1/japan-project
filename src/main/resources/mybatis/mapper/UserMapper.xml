@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hx.dao.UserDao">
+	<select id="getUserList" resultType="map">
+		select * from syain_main
+		<where>
+			<if test="params.SYOZOKU_KAISYA != null and params.SYOZOKU_KAISYA != ''">
+				AND SYOZOKU_KAISYA = #{params.SYOZOKU_KAISYA}
+			</if>
+			<if test="params.SYOKUGYO_KIND != null and params.SYOKUGYO_KIND != ''">
+				AND SYOKUGYO_KIND = #{params.SYOKUGYO_KIND}
+			</if>
+			<if test="params.name != null and params.name != ''">
+				AND CONCAT(FIRST_NAME_KANJI,LAST_NAME_KANJI) like CONCAT('%',#{params.name},'%')
+			</if>
+			<choose>
+				<when test="params.ZAISEKI == 'true' and params.HIZAISEKI == 'false'">
+					AND TAISYA_DATE IS NULL
+				</when>
+				<when test="params.ZAISEKI == 'false' and params.HIZAISEKI == 'true'">
+					AND TAISYA_DATE IS NOT NULL
+				</when>
+			</choose>
+		</where>
+		ORDER BY FIRST_NAME_KANJI, LAST_NAME_KANJI
+	</select>
+	
+	<insert id="saveAccessLog">
+		INSERT INTO user_access_log
+		VALUES (
+			NULL,
+			#{params.userId},
+			#{params.gamenId},
+			NOW()
+		)
+	</insert>
+</mapper>
