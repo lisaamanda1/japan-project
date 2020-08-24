@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hx.service.UserService;
@@ -22,6 +23,13 @@ public class UserController {
 	public String getUserList(HttpServletRequest request) {
 		Map<String, Object> params = Utils.getParams(request);
 		return userService.getUserList(params);
+	}
+	
+	@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
+	public String saveUser(HttpServletRequest request) throws Exception {
+		Map<String, Object> params = Utils.getParams(request);
+		userService.saveUser(params);
+		return "";
 	}
 	
 	@RequestMapping("/deleteUser")

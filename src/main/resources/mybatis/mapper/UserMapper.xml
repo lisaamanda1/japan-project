@@ -34,4 +34,18 @@
 			NOW()
 		)
 	</insert>
+	
+	<insert id="saveUser">
+		INSERT INTO syain_main
+		VALUES (
+			NULL,
+			#{params.FIRST_NAME},
+			#{params.LAST_NAME},
+			#{params.SEIBETU},
+			#{params.SYOZOKU_KAISYA},
+			#{params.NYUUSYA_DATE},
+			NULL,
+			#{params.SYOKUGYO_KIND}
+		)
+	</insert>
 </mapper>

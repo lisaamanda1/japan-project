@@ -8,4 +8,6 @@ public interface UserService {
 	String deleteUser(Object id);
 
 	String saveAccessLog(Map<String, Object> params);
+
+	String saveUser(Map<String, Object> params) throws Exception;
 }

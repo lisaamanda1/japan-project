@@ -19,4 +19,6 @@ public interface UserDao {
 	User getUserByName(String userName);
 
 	void saveAccessLog(@Param("params")Map<String, Object> params);
+
+	void saveUser(@Param("params")Map<String, Object> params);
 }

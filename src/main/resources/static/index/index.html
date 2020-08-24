@@ -9,15 +9,18 @@
 		<link rel="stylesheet" type="text/css" href="/js/easyui/themes/default/easyui.css" />
 		<link rel="stylesheet" type="text/css" href="/js/easyui/themes/icon.css" />
 		<link rel="stylesheet" type="text/css" href="/css/head.css" />
+		<link rel="stylesheet" type="text/css" href="/css/common.css" />
 	
 		<script src="/js/easyui/jquery.min.js"></script>
 		<script src="/js/easyui/jquery.easyui.min.js"></script>
 		<script src="/js/easyui/locale/easyui-lang-jp.js"></script>
 		<script src="/js/tools.js"></script>
 		<script src="/index/index.js"></script>
+		<script src="/index/edit.js"></script>
 		
 	</head>
 	<body class="easyui-layout">
+		<!-- 
 		<div class="header"></div>
 		<div class="context" style="margin-bottom:55px;">
 			<div class="left">
@@ -29,6 +32,7 @@
 				<a href="javascript:;" onclick="app.logout();" style="text-decoration:none">ログアウト</a>
 			</div>
 		</div>
+		 -->
 		<div style="margin:20px 0 10px 0;"></div>
 		<div class="easyui-tabs" id="tabs" data-options="fit:true,tabWidth:150">
 			<div title="作業催促" style="padding:10px">
@@ -95,6 +99,58 @@
 					</form>
 				</div>
 				<table id="userList" title="社員一覧"></table>
+				
+				<!-- 编辑框 -->
+			    <div id="editDlg" title="编辑社員" style="padding: 5px;">
+			        <form id="editForm" method="post">
+			            <table class="formBorder formTable" style="width: 100%">
+			                <input id="id" name="id" type="hidden" />
+			                <tr>
+			                    <td class="formLabel formBorder" width="100px">保险单号：</td>
+			                    <td class="formBorder">
+			                        <select class="easyui-combobox" id="SYOZOKU_KAISYA" name="SYOZOKU_KAISYA" style="width:200px;" data-options="panelHeight:'auto',editable:false">
+		                                <option value="1">株式会社ブライトスター</option>
+		                                <option value="2">株式会社トップクラウド</option>
+		                            </select>
+			                    </td>
+			                    <td class="formLabel formBorder" width="100px">姓：</td>
+			                    <td class="formBorder">
+			                        <input id="FIRST_NAME_KANJI" name="FIRST_NAME_KANJI" class="easyui-textbox" style="width: 200px" data-options="required:true" />
+			                    </td>
+			                </tr>
+			                <tr>
+			                    <td class="formLabel formBorder">名：</td>
+			                    <td class="formBorder">
+			                        <input id="LAST_NAME_KANJI" name="LAST_NAME_KANJI" class="easyui-textbox" style="width: 200px" data-options="required:true" />
+			                    </td>
+			                    <td class="formLabel formBorder">性别：</td>
+			                    <td class="formBorder">
+			                        <select class="easyui-combobox" id="SEIBETU" name="SEIBETU" style="width:200px;" data-options="panelHeight:'auto',editable:false">
+		                                <option value="1">男</option>
+		                                <option value="0">女</option>
+		                            </select>
+			                    </td>
+			                </tr>
+			                <tr>
+			                    <td class="formLabel formBorder">職業種類：</td>
+			                    <td class="formBorder">
+			                        <select class="easyui-combobox" id="SYOKUGYO_KIND" name="SYOKUGYO_KIND" style="width:200px;" data-options="panelHeight:'auto',editable:false">
+		                                <option value="1">役員</option>
+		                                <option value="2">総務</option>
+		                                <option value="3">IT営業</option>
+		                                <option value="4">ITエンジニア</option>
+		                                <option value="5">不動産スタッフ</option>
+		                                <option value="6">個人事業主</option>
+		                            </select>
+			                    </td>
+			                    <td class="formLabel formBorder">入社时间：</td>
+			                    <td class="formBorder">
+			                        <input id="NYUUSYA_DATE" name="NYUUSYA_DATE" class="easyui-datetimebox" data-options="editable:false" style="width: 200px" />
+			                    </td>
+			                </tr>
+			            </table>
+			        </form>
+			    </div>
 			</div>
 			<div title="システム設定" style="padding:10px">
 				<h1>開発中</h1>

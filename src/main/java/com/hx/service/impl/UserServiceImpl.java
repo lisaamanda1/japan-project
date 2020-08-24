@@ -1,5 +1,7 @@
 package com.hx.service.impl;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -36,6 +38,16 @@ public class UserServiceImpl implements UserService {
 	public String saveAccessLog(Map<String, Object> params) {
 		params.put("userId", SecurityUtils.getSubject().getPrincipal());
 		userDao.saveAccessLog(params);
+		return "";
+	}
+
+	@Override
+	public String saveUser(Map<String, Object> params) throws Exception {
+		String NYUUSYA_DATE = params.get("NYUUSYA_DATE").toString();
+		Date date = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").parse(NYUUSYA_DATE);
+		String formatDate = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(date);
+		params.put("NYUUSYA_DATE", formatDate);
+		userDao.saveUser(params);
 		return "";
 	}
 

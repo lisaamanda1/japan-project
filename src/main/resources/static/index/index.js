@@ -60,7 +60,7 @@ var app = function() {
                 	return new Date(val).toLocaleString();
                 }},
                 {field:'OPT',title:'編集',width:80,align:'center',formatter:function(val,row,index){
-                	var result = '<a href="javascript:;" style="text-decoration:none" onClick="app.updateStaff({0})">更新</a>'.format(row.SYANI_ID);
+                	var result = '<a href="javascript:;" style="text-decoration:none" onClick="app.updateStaff({0})">更新</a>'.format(index);
                 	if(user.userRole == 'S') {
                 		result += '<br />';
                     	result += '<a href="javascript:;" class="admin" name="del" style="text-decoration:none" onClick="app.deleteStaff({0},\'{1}\')">削除</a>'.format(row.SYANI_ID, row.FIRST_NAME_KANJI + row.LAST_NAME_KANJI);
@@ -72,7 +72,8 @@ var app = function() {
                 text:'新規登録',
                 iconCls:'icon-add',
                 handler:function(){
-                	$.messager.alert('info', '社員登録画面へ遷移。。（開発中）', 'info');
+                	//$.messager.alert('info', '社員登録画面へ遷移。。（開発中）', 'info');
+                	edit.openEditDlg();
             	}
             }],
             onLoadSuccess:function(data){
@@ -122,7 +123,16 @@ var app = function() {
 	    		);
 			}
 		});
-		tabs.tabs('select', '作業催促');
+		//tabs.tabs('select', '作業催促');
+		tabs.tabs('select', '社員管理');
+		
+		edit.initModule();
+	}
+	
+	function updateStaff(index) {
+		row = userList.datagrid("getRows")[index];
+		edit.openEditDlg(row);
+		//row.SYANI_ID
 	}
 	
 	function deleteStaff(id, name) {
@@ -163,7 +173,7 @@ var app = function() {
 		$.get(
 			'/getUser',
 			{},
-			function(data) {debugger
+			function(data) {
 				user = data;
 				if(!user.userName) {
 					window.location.reload();
@@ -216,8 +226,9 @@ var app = function() {
         deleteStaff: function(id, name) {
         	deleteStaff(id, name);
         },
-        updateStaff: function(id) {
-        	$.messager.alert('info', '該当社員情報の「ID:{0}」を持ち、社員更新画面へ遷移する。。（開発中）'.format(id), 'info');
+        updateStaff: function(index) {
+        	//$.messager.alert('info', '該当社員情報の「ID:{0}」を持ち、社員更新画面へ遷移する。。（開発中）'.format(id), 'info');
+        	updateStaff(index);
         },
         logout: function() {
         	$.get(
