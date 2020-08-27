@@ -23,8 +23,8 @@ var app = function() {
 		userList.datagrid({
 			url:null,
 			method:'get',
-//		    fit:true,
-			height:'70%',
+		    fit:true,
+//			height:'70%',
 		    showFooter:true,
 		    striped:true,
 		    fitColumns:true,
