@@ -12,7 +12,7 @@ import com.hx.bean.User;
 public interface UserDao {
 	List<Map<String, Object>> getUserList(@Param("params")Map<String, Object> params);
 
-	@Delete("DELETE FROM syain_main WHERE SYANI_ID = #{arg0}")
+	@Delete("DELETE FROM syain_main WHERE SYAIN_ID = #{arg0}")
 	int deleteUser(Object id);
 
 	@Select("SELECT * FROM user_auth WHERE BINARY user_id = #{arg0}")

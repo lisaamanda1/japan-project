@@ -36,7 +36,7 @@ var app = function() {
 			pagination:true,
 			remoteSort:false,
 			nowrap:false,
-		    idField:'SYANI_ID',
+		    idField:'SYAIN_ID',
 		    columns:[[
                 {field:'SYOZOKU_KAISYA',title:'所属会社',width:130,align:'center',formatter:function(val,row,index){
                 	return SYOZOKU_KAISYA[val];
@@ -63,7 +63,7 @@ var app = function() {
                 	var result = '<a href="javascript:;" style="text-decoration:none" onClick="app.updateStaff({0})">更新</a>'.format(index);
                 	if(user.userRole == 'S') {
                 		result += '<br />';
-                    	result += '<a href="javascript:;" class="admin" name="del" style="text-decoration:none" onClick="app.deleteStaff({0},\'{1}\')">削除</a>'.format(row.SYANI_ID, row.FIRST_NAME_KANJI + row.LAST_NAME_KANJI);
+                    	result += '<a href="javascript:;" class="admin" name="del" style="text-decoration:none" onClick="app.deleteStaff({0},\'{1}\')">削除</a>'.format(row.SYAIN_ID, row.FIRST_NAME_KANJI + row.LAST_NAME_KANJI);
     				}
                 	return result;
                 }},
@@ -132,7 +132,6 @@ var app = function() {
 	function updateStaff(index) {
 		row = userList.datagrid("getRows")[index];
 		edit.openEditDlg(row);
-		//row.SYANI_ID
 	}
 	
 	function deleteStaff(id, name) {
@@ -145,7 +144,7 @@ var app = function() {
 					$.get(
 						'/user/deleteUser',
 						{id:id},
-						function(data) {
+						function() {
 							userList.datagrid('reload');
 						}
 					);
