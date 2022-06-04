@@ -37,6 +37,7 @@ var edit = function () {
             return;
         }
         var params = {
+			SYAIN_ID: editDlg.find('#SYAIN_ID').val(),
         	SYOZOKU_KAISYA: editDlg.find('#SYOZOKU_KAISYA').combobox('getValue'),
         	FIRST_NAME: editDlg.find('#FIRST_NAME_KANJI').textbox('getValue'),
         	LAST_NAME: editDlg.find('#LAST_NAME_KANJI').textbox('getValue'),
@@ -54,7 +55,7 @@ var edit = function () {
     }
 
     //修改时加载数据
-    function loadData(row) {debugger
+    function loadData(row) {
 //        row.start_time = Common.dateTimeFormat(row.start_time);
 //        row.end_time = Common.dateTimeFormat(row.end_time);
     	//alert(new Date(row.NYUUSYA_DATE).format('MM/dd/yyyy HH:mm:ss'));
