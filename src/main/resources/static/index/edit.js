@@ -4,12 +4,12 @@ var p = window.parent;
 var edit = function () {
     var editDlg = undefined;
     var editForm = undefined;
-    var dataList = undefined;
+    var userList = undefined;
 
     function initModule() {
         editDlg = $('#editDlg');
         editForm = $("#editForm");
-        dataList = $('#dataList');
+        userList = $('#userList');
         editDlg.dialog({
             //iconCls:'Applicationformedit',
             closed:true,
@@ -45,13 +45,25 @@ var edit = function () {
         	SYOKUGYO_KIND: editDlg.find('#SYOKUGYO_KIND').combobox('getValue'),
         	NYUUSYA_DATE: editDlg.find('#NYUUSYA_DATE').datetimebox('getValue')
         };
-        $.post(
-        	'/user/saveUser',
-        	params,
-        	function(data) {
-        		alert('ok');
-        	}
-        );
+        $.messager.confirm({
+			title:'保存',
+			msg:'社員情報を保存しますか？',
+			ok: '確認',
+			fn: function(r) {
+				if(r) {
+					$.post(
+			        	'/user/saveUser',
+			        	params,
+			        	function(data) {
+			        		if(data == 1) {
+								userList.datagrid('reload');
+								editDlg.dialog('close');
+							}
+			        	}
+			        );
+				}
+			}
+		});
     }
 
     //修改时加载数据

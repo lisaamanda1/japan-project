@@ -48,4 +48,16 @@
 			#{params.SYOKUGYO_KIND}
 		)
 	</insert>
+	
+	<update id="updateUser">
+		UPDATE syain_main SET 
+			FIRST_NAME_KANJI = #{params.FIRST_NAME},
+			LAST_NAME_KANJI = #{params.LAST_NAME},
+			SEIBETU = #{params.SEIBETU},
+			SYOZOKU_KAISYA = #{params.SYOZOKU_KAISYA},
+			NYUUSYA_DATE = #{params.NYUUSYA_DATE},
+			SYOKUGYO_KIND = #{params.SYOKUGYO_KIND}
+		WHERE
+			SYAIN_ID = #{params.SYAIN_ID}
+	</update>
 </mapper>

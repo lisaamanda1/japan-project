@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,8 +48,14 @@ public class UserServiceImpl implements UserService {
 		Date date = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").parse(NYUUSYA_DATE);
 		String formatDate = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(date);
 		params.put("NYUUSYA_DATE", formatDate);
-		userDao.saveUser(params);
-		return "";
+		
+		Object SYAIN_ID = params.get("SYAIN_ID");
+		if(SYAIN_ID != null && !Objects.equals(SYAIN_ID.toString(), "")) {
+			userDao.updateUser(params);
+		} else {
+			userDao.saveUser(params);
+		}
+		return "1";
 	}
 
 }

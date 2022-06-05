@@ -21,4 +21,6 @@ public interface UserDao {
 	void saveAccessLog(@Param("params")Map<String, Object> params);
 
 	void saveUser(@Param("params")Map<String, Object> params);
+
+	void updateUser(@Param("params")Map<String, Object> params);
 }

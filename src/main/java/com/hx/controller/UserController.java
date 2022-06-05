@@ -28,8 +28,8 @@ public class UserController {
 	@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
 	public String saveUser(HttpServletRequest request) throws Exception {
 		Map<String, Object> params = Utils.getParams(request);
-		userService.saveUser(params);
-		return "";
+		String result = userService.saveUser(params);
+		return result;
 	}
 	
 	@RequestMapping("/deleteUser")
